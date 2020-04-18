@@ -1,0 +1,23 @@
+{
+  "name": "openblogs",
+  "version": "0.0.1",
+  "description": "API for bloggers",
+  "main": "index.js",
+  "repository": "https://github.com/lucas-lm/openblogs.git",
+  "author": "Lucas Miranda <lucas-m@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.0.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.6"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.3",
+    "sequelize-cli": "^5.5.1"
+  }
+}
