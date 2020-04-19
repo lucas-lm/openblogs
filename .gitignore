@@ -108,3 +108,5 @@ dist
 db.env.json
 db.config.json
 .sequelizerc
+*.sqlite
+*.sqlite3
