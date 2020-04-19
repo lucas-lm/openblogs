@@ -7,7 +7,8 @@
   "author": "Lucas Miranda <lucas-m@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon -r dotenv/config src/index.js"
+    "dev": "nodemon -r dotenv/config src/index.js",
+    "start": "node src/index.js"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -18,6 +19,7 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.3",
-    "sequelize-cli": "^5.5.1"
+    "sequelize-cli": "^5.5.1",
+    "sqlite3": "^4.1.1"
   }
 }

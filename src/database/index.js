@@ -1,18 +1,9 @@
 const Sequelize = require('sequelize')
+const dbConfig = require('./config')
 
-const dbConfig = {
-  dialect: 'postgres',
-  database: 'blogs',
-  host: process.env.DB_HOST,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  define: {
-    timestamps: true,
-    underscored: true,
-  },
-}
+const { NODE_ENV } = process.env
 
-const conn = new Sequelize(dbConfig)
+const conn = new Sequelize(dbConfig[NODE_ENV])
 
 conn
   .authenticate()
