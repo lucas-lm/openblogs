@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const sequelize = require('../database')
 
-const { SECRET } = process.env
+const { SECRET, JWT_TIMESPAN } = process.env
 
 class User extends Model {}
 
@@ -38,8 +38,8 @@ User.beforeSave(async (user, options) => {
 })
 
 User.prototype.generateToken = function () {
-  const id = this.id
-  const token = jwt.sign({ aud: id }, SECRET)
+  const { id } = this
+  const token = jwt.sign({ aud: id }, SECRET, { expiresIn: JWT_TIMESPAN })
   return token
 }
 
