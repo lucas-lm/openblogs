@@ -10,6 +10,8 @@ module.exports = async (req, res, next) => {
   const token = authorization.replace('Bearer ', '')
   try {
     const payload = jwt.verify(token, SECRET)
+    const isExpired = payload.exp ? payload.exp < Date.now() / 1000 : false
+    if (isExpired) throw new Error('token expired')
     req.auth = payload
     return next()
   } catch (error) {
