@@ -7,19 +7,27 @@
   "author": "Lucas Miranda <lucas-m@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon -r dotenv/config src/index.js",
-    "start": "node src/index.js"
+    "dev": "cross-env NODE_ENV=development nodemon -r dotenv/config",
+    "start": "node index.js",
+    "pretest": "sequelize db:migrate:undo:all --env test && sequelize db:migrate --env test",
+    "test": "jest"
   },
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^8.0.2",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.6"
   },
   "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
+    "jest": "^25.4.0",
     "nodemon": "^2.0.3",
     "sequelize-cli": "^5.5.1",
-    "sqlite3": "^4.1.1"
+    "sqlite3": "^4.1.1",
+    "supertest": "^4.0.2"
   }
 }
