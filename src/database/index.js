@@ -1,11 +1,19 @@
 const Sequelize = require('sequelize')
-const dbConfig = require('./config')
+const db = require('./config/config')
 
 const { NODE_ENV } = process.env
 
-const conn = new Sequelize(dbConfig[NODE_ENV])
+const dbConfig = {
+  ...db[NODE_ENV],
+  define: {
+    timestamps: true,
+    underscored: true,
+  },
+}
 
-conn
+const sequelize = new Sequelize(dbConfig)
+
+sequelize
   .authenticate()
   .then(() => {
     console.log('Connection has been established successfully.')
@@ -14,4 +22,4 @@ conn
     console.error('Unable to connect to the database:', err)
   })
 
-module.exports = conn
+module.exports = sequelize

@@ -10,10 +10,10 @@ module.exports = {
   },
   development: {
     dialect: 'sqlite',
-    storage: path.resolve(__dirname, 'database.sqlite'),
+    storage: path.resolve(__dirname, '../database.sqlite'),
   },
   test: {
     dialect: 'sqlite',
-    storage: ':memory',
+    storage: path.resolve(__dirname, '../../__tests__/tests_db.sqlite'),
   },
 }
