@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const { SECRET } = process.env // TODO: create function to extract secret to publish this like a package
 
-module.exports = async (req, res, next) => {
+module.exports = (req, res, next) => {
   const { authorization } = req.headers
   if (!authorization) {
     req.auth = false
