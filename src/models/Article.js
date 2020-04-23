@@ -3,7 +3,7 @@ const sequelize = require('../database')
 const User = require('./User')
 
 class Article extends Model {}
-
+// TODO: add new field for description
 Article.init(
   {
     title: {
@@ -17,6 +17,7 @@ Article.init(
     },
     subtitle: DataTypes.STRING(100),
     content: DataTypes.TEXT,
+    description: DataTypes.STRING(255),
   },
   { sequelize }
 )
