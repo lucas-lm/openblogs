@@ -7,8 +7,8 @@
   "author": "Lucas Miranda <lucas-m@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon -r dotenv/config",
-    "start": "node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon -r dotenv/config src/index.js",
+    "start": "node src/index.js",
     "pretest": "sequelize db:migrate:undo:all --env test && sequelize db:migrate --env test",
     "test": "jest -i"
   },

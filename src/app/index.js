@@ -1,7 +1,7 @@
 const express = require('express')
 const router = require('./routes')
 const authentication = require('./middlewares/authentication')
-require('./database')
+require('../database')
 
 const app = express()
 

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('./config')
-const models = require('../models')
+const models = require('../app/models')
 
 class Database {
   constructor() {
