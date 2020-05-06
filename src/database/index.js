@@ -1,25 +1,33 @@
 const Sequelize = require('sequelize')
-const db = require('./config/config')
+const db = require('./config')
+const models = require('../models')
 
-const { NODE_ENV } = process.env
+class Database {
+  constructor() {
+    this.init()
+    this.connection
+      .authenticate()
+      .then(() => {
+        console.log('Connection has been established successfully.')
+      })
+      .catch((error) => {
+        console.error('Unable to connect to the database:', error)
+      })
+  }
 
-const dbConfig = {
-  ...db[NODE_ENV],
-  define: {
-    timestamps: true,
-    underscored: true,
-  },
+  init() {
+    const { NODE_ENV } = process.env
+    const define = { timestamps: true, underscored: true }
+    const dbConfig = { ...db[NODE_ENV], define }
+    this.connection = new Sequelize(dbConfig)
+
+    Object.keys(models)
+      .map((key) => models[key])
+      .map((model) => model.init(this.connection))
+      .map(
+        (model) => model.associate && model.associate(this.connection.models)
+      )
+  }
 }
 
-const sequelize = new Sequelize(dbConfig)
-
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.')
-  })
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err)
-  })
-
-module.exports = sequelize
+module.exports = new Database()
