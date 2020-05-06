@@ -1,5 +1,4 @@
-const Article = require('../models/Article')
-const User = require('../models/User')
+const { Article, User } = require('../models')
 
 module.exports = {
   async index(req, res) {
@@ -8,7 +7,7 @@ module.exports = {
   },
 
   async create(req, res) {
-    const { aud: pk } = req.auth
+    const { sub: pk } = req.auth
     const { title, subtitle = null, content = null } = req.body
     try {
       const user = await User.findByPk(pk)
