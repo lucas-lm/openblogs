@@ -14,9 +14,7 @@ router.post('/article', allow('authenticated'), ArticleController.create)
 
 // show some results
 router.get('/test', (req, res) => {
-  const { auth } = req
-  const a = auth ? '' : 'não'
-  return res.send(`Você ${a} está autenticado`)
+  return res.send(`Testando ${req}`)
 })
 
 module.exports = router
