@@ -10,7 +10,7 @@
     "dev": "cross-env NODE_ENV=development nodemon -r dotenv/config",
     "start": "node index.js",
     "pretest": "sequelize db:migrate:undo:all --env test && sequelize db:migrate --env test",
-    "test": "jest"
+    "test": "jest -i"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
@@ -24,6 +24,7 @@
     "@types/jest": "^25.2.1",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
+    "faker": "^4.1.0",
     "jest": "^25.4.0",
     "nodemon": "^2.0.3",
     "sequelize-cli": "^5.5.1",
