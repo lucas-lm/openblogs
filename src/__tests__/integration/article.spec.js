@@ -18,7 +18,7 @@ describe('Article operations', () => {
   describe('create new article', () => {
     it('should be able to create a new article', async () => {
       const { status } = await request
-        .post('/article')
+        .post('/articles')
         .send(newArticle)
         .set({ Authorization: `Bearer ${token}` })
 
@@ -26,7 +26,7 @@ describe('Article operations', () => {
     })
 
     it('should not be able to create a new article without authentication', async () => {
-      const { status } = await request.post('/article').send(newArticle)
+      const { status } = await request.post('/articles').send(newArticle)
       expect(status).toBe(401)
     })
   })

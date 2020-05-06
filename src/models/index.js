@@ -14,5 +14,4 @@ for (const place of places) {
   }
 }
 
-console.log(exports)
 module.exports = models
