@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon -r dotenv/config src/index.js",
-    "prestart": "sequelize db:migrate",
+    "prestart": "echo This should work fine",
     "start": "node src/index.js",
     "pretest": "sequelize db:migrate:undo:all --env test && sequelize db:migrate --env test",
     "test": "jest -i"
