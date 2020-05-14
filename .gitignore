@@ -111,3 +111,4 @@ db.config.json
 *.sqlite
 *.sqlite3
 app.yml
+.gcloudignore

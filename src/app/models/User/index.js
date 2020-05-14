@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const schema = require('./schema')
 const hooks = require('./hooks')
 
-const { SECRET, JWT_TIMESPAN } = process.env
+const { SECRET, JWT_LIFESPAN } = process.env
 
 class User extends Model {
   static init(sequelize) {
@@ -18,7 +18,7 @@ User.associate = function (models) {
 
 User.prototype.generateToken = function () {
   const { id } = this
-  const token = jwt.sign({ sub: id }, SECRET, { expiresIn: JWT_TIMESPAN })
+  const token = jwt.sign({ sub: id }, SECRET, { expiresIn: JWT_LIFESPAN })
   return token
 }
 
