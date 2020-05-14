@@ -14,9 +14,4 @@ router.post('/register', UserController.create)
 router.post('/get_token', TokenController.create)
 router.use('/articles', articles)
 
-// show some results
-router.get('/test', (req, res) => {
-  return res.send(`Testando ${req}`)
-})
-
 module.exports = router
