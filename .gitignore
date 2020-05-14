@@ -110,5 +110,5 @@ db.config.json
 .sequelizerc
 *.sqlite
 *.sqlite3
-app.yml
+app.yaml
 .gcloudignore
