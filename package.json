@@ -8,12 +8,13 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon -r dotenv/config src/index.js",
-    "prestart": "echo This should work fine",
+    "prestart": "sequelize db:migrate",
     "start": "node src/index.js",
     "pretest": "sequelize db:migrate:undo:all --env test && sequelize db:migrate --env test",
     "test": "jest -i"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.1.1",
     "bcrypt": "^4.0.1",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",

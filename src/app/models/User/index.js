@@ -16,9 +16,10 @@ User.associate = function (models) {
   this.hasMany(models.Article, { foreignKey: 'author_id', as: 'articles' })
 }
 
-User.prototype.generateToken = function () {
+User.prototype.generateToken = async function (lifespan = JWT_LIFESPAN) {
   const { id } = this
-  const token = jwt.sign({ sub: id }, SECRET, { expiresIn: JWT_LIFESPAN })
+  console.log(JWT_LIFESPAN)
+  const token = jwt.sign({ sub: id }, SECRET, { expiresIn: lifespan })
   return token
 }
 

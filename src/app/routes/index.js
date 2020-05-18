@@ -12,6 +12,7 @@ const TokenController = require('../controllers/TokenController')
 router.get('/', (req, res) => res.send('Welcome to openblogs api'))
 router.post('/register', UserController.create)
 router.post('/get_token', TokenController.create)
+router.get('/account/verify/:token', UserController.activate)
 router.use('/articles', articles)
 
 module.exports = router

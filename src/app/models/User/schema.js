@@ -20,4 +20,8 @@ module.exports = {
       },
     },
   },
+  active: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
 }
